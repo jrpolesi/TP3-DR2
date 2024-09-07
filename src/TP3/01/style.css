@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #3f51b5;
+    --primary-color-dark: #1d2555;
+    --text-contrast-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-contrast-color);
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    min-width: 0;
+    width: 60px;
+    border: 3px solid var(--primary-color-dark);
+    border-radius: 8px;
+}
+
+.hide {
+    display: none;
+}
+
+.menu-navigation--mobile {
+    order: 1;
+    width: 100%;
+}
+
+.menu-navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.menu-navigation--mobile ul {
+    padding-top: 20px;
+}
+
+.menu-navigation a {
+    color: var(--text-contrast-color);
+    text-decoration: none;
+}
+
+.menu-toggle-button {
+    background-color: transparent;
+    color: var(--text-contrast-color);
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.menu-toggle-button--up::after {
+    content: "keyboard_arrow_up";
+}
+
+.menu-toggle-button--down::after {
+    content: "keyboard_arrow_down";
+}
+
+.menu-navigation--desktop {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .header-content {
+        padding: 10px 55px;
+    }
+    
+    .menu-navigation--desktop {
+        display: flex;
+    }
+
+    .menu-navigation--mobile {
+        display: none;
+    }
+
+    .menu-toggle-button {
+        display: none;
+    }
+}
