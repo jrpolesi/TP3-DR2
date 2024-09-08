@@ -1,0 +1,9 @@
+.dark-mode-btn {
+  background-color: var(--color-primary);
+  border: none;
+  color: var(--color-contrast);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+}

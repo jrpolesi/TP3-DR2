@@ -15,7 +15,7 @@ Pense Mobile-first!
 import { useState } from "react";
 import { CompatibilityList } from "./components/CompatibilityList";
 import { MovieList } from "./components/MovieList";
-import { DarkModeBtn } from "../13/Components/DarkModeBtn";
+import { DarkModeBtn } from "./components/DarkModeBtn";
 
 export default function App() {
   const [myList, setMyList] = useState([]);
