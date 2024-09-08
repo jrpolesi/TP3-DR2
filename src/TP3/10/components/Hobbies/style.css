@@ -1,0 +1,46 @@
+.hobbies-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.hobbies-list ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hobbies-list img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-primary);
+}
+
+@media screen and (min-width: 768px) {
+  .hobbies-list {
+    flex-grow: 1;
+  }
+
+  .hobbies-list img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hobbies-list {
+    width: min-content;
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+
+  .hobbies-list img {
+    width: 125px;
+    height: 125px;
+  }
+}
