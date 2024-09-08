@@ -1,0 +1,35 @@
+.add-task-container {
+  margin: auto;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+}
+
+.add-task-container h2 {
+  font-size: 18px;
+}
+
+.add-task-container div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-task-container input {
+  padding: 3px 8px;
+  border-radius: 5px;
+  border: 2px solid var(--color-primary);
+}
+
+.add-task-container button {
+  padding: 8px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-contrast);
+  border: none;
+  border-radius: 5px;
+  align-self: flex-end;
+}

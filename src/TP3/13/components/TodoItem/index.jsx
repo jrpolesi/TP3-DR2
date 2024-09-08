@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState } from "react";
 
 export function TodoItem({ task, onTaskDelete }) {
@@ -6,15 +7,19 @@ export function TodoItem({ task, onTaskDelete }) {
   const textDecoration = completed ? "line-through" : "none";
 
   return (
-    <li>
-      <div>
-        <span style={{ textDecoration }}>{task.title}</span>
-        <span>{task.category}</span>
+    <li className="list-item">
+      <div className="list-item--content">
+        <h3 style={{ textDecoration }}>{task.title}</h3>
+        <span className="list-item--category">{task.category}</span>
       </div>
 
-      <button onClick={() => setCompleted(true)}>Concluir</button>
+      <div className="list-item--actions">
+        <button onClick={() => setCompleted((o) => !o)}>
+          {completed ? "Voltar" : "Concluir"}
+        </button>
 
-      <button onClick={() => onTaskDelete(task)}>Excluir</button>
+        <button onClick={() => onTaskDelete(task)}>Excluir</button>
+      </div>
     </li>
   );
 }

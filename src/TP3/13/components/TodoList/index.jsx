@@ -1,7 +1,9 @@
+import "./style.css";
 import { useState } from "react";
 import { NewTask } from "../NewTask";
 import { TodoItem } from "../TodoItem";
 import { Filter } from "../Filter";
+import { DarkModeBtn } from "../DarkModeBtn";
 
 const TASKS = [
   { id: "1", title: "Estudar para a prova", category: "Estudos" },
@@ -31,7 +33,12 @@ export function TodoList() {
   }
 
   function deleteTask(task) {
-    setTasks(tasks.filter((t) => t.id !== task.id));
+    const updatedTasks = tasks.filter((t) => t.id !== task.id);
+
+    setTasks(updatedTasks);
+    setFilter((prevFilter) =>
+      prevFilter.filter((c) => updatedTasks.find((t) => t.category === c))
+    );
   }
 
   function onFilterChange(isActive, category) {
@@ -46,15 +53,25 @@ export function TodoList() {
     : tasks;
 
   return (
-    <div>
+    <div className="todo-list-container">
       <NewTask onAddTask={addTask} />
 
-      <Filter onFilterChange={onFilterChange} tasks={tasks} filter={filter} />
-      <ul>
-        {filteredTasks.map((task) => (
-          <TodoItem key={task.id} task={task} onTaskDelete={deleteTask} />
-        ))}
-      </ul>
+      <div className="todo-list-content">
+        <div className="todo-list-title">
+          <h2>Minhas tarefas</h2>
+          <DarkModeBtn />
+        </div>
+
+        <Filter onFilterChange={onFilterChange} tasks={tasks} filter={filter} />
+
+        {!filteredTasks.length && <p>Nenhuma tarefa encontrada</p>}
+
+        <ul className="todo-list">
+          {filteredTasks.map((task) => (
+            <TodoItem key={task.id} task={task} onTaskDelete={deleteTask} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
