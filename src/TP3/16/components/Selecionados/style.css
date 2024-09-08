@@ -1,0 +1,11 @@
+.selecionados-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.total-selecionados {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 20px;
+}

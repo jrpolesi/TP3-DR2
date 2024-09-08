@@ -1,0 +1,13 @@
+.viajantes-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.viajantes-input input {
+  width: 50px;
+  padding: 5px;
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+  text-align: center;
+}
