@@ -3,7 +3,6 @@
   display: flex;
   border-radius: 10px;
   max-width: 450px;
-  width: 100%;
   margin: 10px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.234);
 }
@@ -25,11 +24,10 @@
 
 .card--title {
   font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 10px;
   margin: 0;
 }
 
 .card--description, .card--footer {
   font-size: .95rem;
+  margin: 0;
 }
