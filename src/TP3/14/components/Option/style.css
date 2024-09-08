@@ -1,0 +1,30 @@
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option--correct::after {
+  content: '- correto';
+  color: var(--color-success);
+}
+
+.option--incorrect::after {
+  content: '- errado';
+  color: var(--color-danger);
+}
+
+.option label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.option label.option-label--disabled {
+  cursor: not-allowed;
+}
+
+.option input {
+  margin: 0
+}

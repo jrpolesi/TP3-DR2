@@ -8,6 +8,8 @@ Pense Mobile-first!
 */
 
 import { useState } from "react";
+import { Questions } from "./components/Questions";
+import { DarkModeBtn } from "../13/Components/DarkModeBtn";
 
 const QUESTIONS = [
   {
@@ -66,78 +68,18 @@ export default function App() {
   const [points, setPoints] = useState(0);
 
   return (
-    <div>
-      <div>
-        <div>
-          <span>Seus pontos:</span>
-          <span>{points}</span>
-        </div>
+    <main>
+      <div className="title">
+        <h2>Sistema solar</h2>
+        <DarkModeBtn />
       </div>
 
-      <Game onPointsChange={setPoints} />
-    </div>
-  );
-}
+      <div className="points">
+        <span>Seus pontos:</span>
+        <span className="points--value">{points}</span>
+      </div>
 
-function Game({ onPointsChange }) {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isFinished, setIsFinished] = useState(false);
-
-  const currentQuestion = QUESTIONS[currentQuestionIndex];
-
-  function handleOptionClick(option) {
-    setSelectedOption(option);
-  }
-
-  function handleNextQuestion() {
-    if (selectedOption === currentQuestion.correct) {
-      onPointsChange((prevPoints) => prevPoints + 1);
-    }
-
-    const isLastQuestion = currentQuestionIndex === QUESTIONS.length - 1;
-    if (isLastQuestion) {
-      setIsFinished(true);
-      return;
-    }
-
-    setSelectedOption(null);
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  }
-
-  function handleNewGame() {
-    setCurrentQuestionIndex(0);
-    setSelectedOption(null);
-    setIsFinished(false);
-    onPointsChange(0);
-  }
-
-  return (
-    <div>
-      <h2>{currentQuestion.title}</h2>
-      <ul>
-        {currentQuestion.options.map((option) => (
-          <li
-            key={option}
-            style={{
-              backgroundColor:
-                selectedOption === option
-                  ? option === currentQuestion.correct
-                    ? "green"
-                    : "red"
-                  : "transparent",
-            }}
-            onClick={() => !selectedOption && handleOptionClick(option)}
-          >
-            {option}
-          </li>
-        ))}
-      </ul>
-      {isFinished ? (
-        <button onClick={handleNewGame}>Reiniciar</button>
-      ) : (
-        <button disabled={!selectedOption} onClick={handleNextQuestion}>Próxima</button>
-      )}
-    </div>
+      <Questions questions={QUESTIONS} onPointsChange={setPoints} />
+    </main>
   );
 }
