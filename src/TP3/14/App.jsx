@@ -70,7 +70,7 @@ export default function App() {
   return (
     <main>
       <div className="title">
-        <h2>Sistema solar</h2>
+        <h1>Sistema solar</h1>
         <DarkModeBtn />
       </div>
 

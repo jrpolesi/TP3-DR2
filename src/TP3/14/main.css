@@ -48,6 +48,10 @@ button {
   margin-top: 20px;
 }
 
+.title h1 {
+  font-size: 24px;
+}
+
 .points {
   margin-left: auto;
   margin-right: 30px;
