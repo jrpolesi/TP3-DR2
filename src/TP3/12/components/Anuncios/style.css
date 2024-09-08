@@ -1,0 +1,28 @@
+.ads {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ads img {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0px 6px 8px var(--shadow-color);
+}
+
+.ads div {
+  position: relative;
+}
+
+.ads div::after {
+  content: 'Anúncio';
+  position: absolute;
+  background-color: var(--color-primary);
+  color: var(--color-contrast);
+  padding: 5px 10px;
+  border-radius: 5px;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}

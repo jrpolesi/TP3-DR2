@@ -1,0 +1,33 @@
+.comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comentarios ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comentarios li {
+  box-shadow: 0px 6px 8px var(--shadow-color);
+  padding: 15px 20px;
+}
+
+.comentario--header {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comentario--date {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .comentarios {
+    margin-top: 40px;
+  }
+}

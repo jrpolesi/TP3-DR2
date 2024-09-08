@@ -1,0 +1,44 @@
+.destaque {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.destaque video {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.destaque--info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.destaque--info-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.destaque--metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.destaque--actions {
+  display: flex;
+  gap: 5px;
+}
+
+.destaque--actions button {
+  background-color: var(--color-primary);
+  color: var(--color-contrast);
+  border: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}

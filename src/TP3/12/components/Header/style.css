@@ -1,0 +1,109 @@
+header {
+  background-color: var(--color-primary);
+  color: var(--color-contrast);
+}
+
+header>div {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 30px;
+}
+
+header h1 {
+  order: 1;
+  margin: 0;
+}
+
+.menu-navigation--mobile {
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-height: 100vh;
+  height: 100%;
+  width: 300px;
+  max-width: 90%;
+  color: var(--text-contrast-color);
+  background-color: var(--color-primary);
+  padding: 20px;
+  box-shadow: -5px 0 30px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-navigation--mobile ul {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  font-size: 20px;
+}
+
+.menu-navigation--mobile a {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.close-menu-button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.menu-toggle-button {
+  background-color: transparent;
+  color: var(--text-contrast-color);
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.dark-mode-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--color-contrast);
+  cursor: pointer;
+  order: 3;
+  margin-left: auto;
+}
+
+
+.menu-navigation--desktop {
+  display: none;
+}
+
+
+@media screen and (min-width: 768px) {
+  .menu-navigation--desktop {
+    display: flex;
+  }
+
+  .menu-navigation--desktop a {
+    color: var(--text-contrast-color);
+  }
+
+  .menu-navigation--mobile {
+    display: none;
+  }
+
+  .menu-toggle-button {
+    display: none;
+  }
+
+  header {
+    gap: 40px;
+  }
+
+  header h1 {
+    order: 0;
+  }
+
+  header nav ul {
+    display: flex;
+    gap: 20px;
+  }
+}
