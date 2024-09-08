@@ -1,5 +1,23 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+h2 {
+  text-align: center;
+  font-size: clamp(22px, 8vw, 36px);
+}
+
+h3 {
+  text-align: center;
+  font-size: clamp(20px, 6vw, 32px);
+  ;
+}
+
+h4 {
+  text-align: center;
+  font-size: clamp(18px, 4vw, 26px);
+  ;
+}
+
+p {
+  font-size: clamp(14px, 3vw, 20px);
+  text-align: justify;
+  text-indent: 20px;
+  padding: 0 20px;
 }
