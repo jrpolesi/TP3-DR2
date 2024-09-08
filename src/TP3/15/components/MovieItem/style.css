@@ -1,0 +1,44 @@
+.movie-item {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  width: fit-content;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.movie-item button {
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-primary);
+  color: var(--color-contrast);
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+button:hover.movie-item-btn--liked {
+  background-color: var(--color-success);
+  color: var(--color-contrast);
+  opacity: 1;
+}
+
+button:hover.movie-item-btn--unliked {
+  background-color: var(--color-danger);
+  color: var(--color-contrast);
+  opacity: 1;
+}
+
+.movie-item--title {
+  font-size: 16px;
+  text-align: center;
+}
+
+@media screen and (min-width: 425px) {
+  .movie-item--title {
+    font-size: 18px
+  }
+}

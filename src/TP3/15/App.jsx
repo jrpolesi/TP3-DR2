@@ -13,128 +13,35 @@ Pense Mobile-first!
 */
 
 import { useState } from "react";
-
-const MOVIES = [
-  "Matrix",
-  "O Poderoso Chefão",
-  "O Senhor dos Anéis",
-  "Star Wars",
-  "Titanic",
-  "Avatar",
-  "O Rei Leão",
-  "Harry Potter",
-  "Jurassic Park",
-  "Indiana Jones",
-];
+import { CompatibilityList } from "./components/CompatibilityList";
+import { MovieList } from "./components/MovieList";
+import { DarkModeBtn } from "../13/Components/DarkModeBtn";
 
 export default function App() {
-  return <MovieList />;
-}
-
-function MovieList() {
-  const [currentMovie, setCurrentMovie] = useState(0);
   const [myList, setMyList] = useState([]);
   const [showCompatibility, setShowCompatibility] = useState(false);
 
-  function handleChoice(movie, liked) {
-    if (liked) {
-      setMyList((prev) => [...prev, movie]);
-    }
-    if (currentMovie < MOVIES.length) {
-      setCurrentMovie((prev) => prev + 1);
-    }
-  }
-  console.log({
-    currentMovie,
-    length: MOVIES.length,
-  });
-
   return (
-    <div>
+    <main>
+      <div className="title">
+        <h1>Compatibilidade de filmes</h1>
+        <DarkModeBtn />
+      </div>
+
       {showCompatibility ? (
         <CompatibilityList myList={myList} />
       ) : (
-        <div>
-          <ul>
-            {MOVIES.map((movie) => (
-              <MovieItem
-                key={movie}
-                movie={movie}
-                handleChoice={handleChoice}
-              />
-            ))}
-          </ul>
+        <div className="select-movies">
+          <MovieList onUpdateMyList={setMyList} />
 
           <button
-            disabled={currentMovie < MOVIES.length}
+            className="show-compatibility-btn"
             onClick={() => setShowCompatibility(true)}
           >
             Ver usuários com gostos parecidos
           </button>
         </div>
       )}
-    </div>
-  );
-}
-
-function MovieItem({ movie, handleChoice }) {
-  const [choice, setChoice] = useState(null);
-
-  function onChoice(choice) {
-    setChoice(choice);
-    handleChoice(movie, choice);
-  }
-
-  const isDisabled = choice !== null;
-
-  return (
-    <li>
-      <h2>{movie}</h2>
-      <button disabled={isDisabled} onClick={() => onChoice(true)}>
-        👍
-      </button>
-      <button disabled={isDisabled} onClick={() => onChoice(false)}>
-        👎
-      </button>
-    </li>
-  );
-}
-
-const USERS = [
-  {
-    name: "João",
-    liked: ["Matrix", "O Poderoso Chefão", "O Senhor dos Anéis"],
-  },
-  {
-    name: "Maria",
-    liked: ["O Poderoso Chefão", "O Rei Leão", "Harry Potter"],
-  },
-  {
-    name: "José",
-    liked: ["Star Wars", "Titanic", "Avatar"],
-  },
-];
-
-function CompatibilityList({ myList }) {
-  const sortedUsers = USERS.sort((a, b) => {
-    const aLiked = a.liked.filter((movie) => myList.includes(movie));
-    const bLiked = b.liked.filter((movie) => myList.includes(movie));
-
-    return bLiked.length - aLiked.length;
-  });
-
-  return (
-    <ul>
-      {sortedUsers.map((user) => (
-        <li key={user.name}>
-          <h2>{user.name}</h2>
-          <div>
-            Vocês tem
-            {user.liked.filter((movie) => myList.includes(movie)).length} gostos
-            em comum
-          </div>
-        </li>
-      ))}
-    </ul>
+    </main>
   );
 }
