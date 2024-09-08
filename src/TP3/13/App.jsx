@@ -11,7 +11,7 @@ Implemente estilos diferentes para o esquema de cores light e dark.
 Pense Mobile-first!
 */
 
-import { TodoList } from "./components/TodoList";
+import { TodoList } from "./Components/TodoList";
 
 export default function App() {
   return <TodoList />;
