@@ -1,0 +1,35 @@
+.card {
+  overflow: hidden;
+  display: flex;
+  border-radius: 10px;
+  max-width: 450px;
+  width: 100%;
+  margin: 10px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.234);
+}
+
+.card--image {
+  flex: 1;
+  min-width: 0px;
+  object-fit: cover;
+}
+
+.card--content {
+  flex: 1.5;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card--title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin: 0;
+}
+
+.card--description, .card--footer {
+  font-size: .95rem;
+}
