@@ -5,7 +5,6 @@ import "./style.css";
 export function Questions({ questions, onPointsChange, points }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [isFinished, setIsFinished] = useState(false);
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -15,12 +14,6 @@ export function Questions({ questions, onPointsChange, points }) {
     }
 
     setSelectedOption(option);
-
-    const isLastQuestion = currentQuestionIndex === questions.length;
-    debugger
-    if (isLastQuestion) {
-      setIsFinished(true);
-    }
   }
 
   function handleNextQuestion() {
@@ -31,16 +24,17 @@ export function Questions({ questions, onPointsChange, points }) {
   function handleNewGame() {
     setCurrentQuestionIndex(0);
     setSelectedOption(null);
-    setIsFinished(false);
     onPointsChange(0);
   }
+
+  const isFinished = currentQuestionIndex === questions.length;
 
   return (
     <div className="questions">
       <h2>{currentQuestion?.title ?? "Resultado"}</h2>
 
       {isFinished ? (
-        <p className="questions-result">{points}</p>
+        <p className="questions-result">{points} pontos</p>
       ) : (
         <Options
           question={currentQuestion}

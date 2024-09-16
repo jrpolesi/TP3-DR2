@@ -31,7 +31,7 @@
 }
 
 .questions-result {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  margin: auto;
+  font-size: 30px;
 }
