@@ -9,7 +9,7 @@ Pense Mobile-first!
 
 import { useState } from "react";
 import { Questions } from "./components/Questions";
-import { DarkModeBtn } from "../13/Components/DarkModeBtn";
+import { DarkModeBtn } from "./components/DarkModeBtn";
 
 const QUESTIONS = [
   {
