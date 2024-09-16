@@ -79,7 +79,11 @@ export default function App() {
         <span className="points--value">{points}</span>
       </div>
 
-      <Questions questions={QUESTIONS} onPointsChange={setPoints} />
+      <Questions
+        questions={QUESTIONS}
+        onPointsChange={setPoints}
+        points={points}
+      />
     </main>
   );
 }

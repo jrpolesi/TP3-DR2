@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Options } from "../Options";
 import "./style.css";
 
-export function Questions({ questions, onPointsChange }) {
+export function Questions({ questions, onPointsChange, points }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isFinished, setIsFinished] = useState(false);
@@ -16,7 +16,8 @@ export function Questions({ questions, onPointsChange }) {
 
     setSelectedOption(option);
 
-    const isLastQuestion = currentQuestionIndex + 1 === questions.length;
+    const isLastQuestion = currentQuestionIndex === questions.length;
+    debugger
     if (isLastQuestion) {
       setIsFinished(true);
     }
@@ -36,13 +37,17 @@ export function Questions({ questions, onPointsChange }) {
 
   return (
     <div className="questions">
-      <h2>{currentQuestion.title}</h2>
+      <h2>{currentQuestion?.title ?? "Resultado"}</h2>
 
-      <Options
-        question={currentQuestion}
-        selected={selectedOption}
-        onAnswer={handleSelectedOption}
-      />
+      {isFinished ? (
+        <p className="questions-result">{points}</p>
+      ) : (
+        <Options
+          question={currentQuestion}
+          selected={selectedOption}
+          onAnswer={handleSelectedOption}
+        />
+      )}
 
       {isFinished ? (
         <button onClick={handleNewGame}>Reiniciar</button>
