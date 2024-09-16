@@ -57,3 +57,9 @@
   background-color: var(--color-danger);
   color: var(--color-contrast);
 }
+
+@media (pointer: fine) {
+  .ponto-turistico--add:hover, .ponto-turistico--remove:hover {
+    opacity: 0.6;
+  }
+}

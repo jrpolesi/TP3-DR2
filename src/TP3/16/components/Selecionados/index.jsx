@@ -25,13 +25,14 @@ export function Selecionados({ pontosTuristicosSelecionados, onRemove }) {
           viajantes={viajantes}
           onViajantesChange={setViajantes}
         />
-        <span className="total-selecionados">Total: R$ {total}</span>
       </div>
 
       <ListaDePontosTuristicos
         pontosTuristicos={selecionadosComOValorAtualizado}
         onRemove={onRemove}
       />
+
+      <span className="total-selecionados">Total: R$ {total}</span>
     </div>
   );
 }
